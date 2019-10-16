@@ -1,0 +1,7 @@
+Wed Feb  6 18:45:22 2019  Events = 0  L/min = 0.0
+Wed Feb  6 18:45:27 2019  Events = 59  L/min = 7.965
+Wed Feb  6 18:45:32 2019  Events = 58  L/min = 7.83
+Wed Feb  6 18:45:37 2019  Events = 50  L/min = 6.75
+Wed Feb  6 18:45:42 2019  Events = 0  L/min = 0.0
+
+caught keyboard interrupt!, bye

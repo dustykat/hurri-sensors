@@ -1,0 +1,617 @@
+\documentclass[11pt]{article}
+%\documentclass[11pt]{report}
+\usepackage{./styles/daves,fancyhdr,natbib,url}
+\usepackage{amsmath,amssymb,graphicx,pdfpages,lscape}
+\usepackage{booktabs,longtable}
+\usepackage{dcolumn}
+
+%%%%%%%%%% Will's stuff BELOW %%%%%%%
+\usepackage[left=1.25in, right=1.25in,
+            top=1in, bottom=1in]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}
+
+\usepackage{ragged2e}
+
+\usepackage{xcolor}
+\newcommand{\codeRcolor}{0.93}
+\newcommand{\codeGcolor}{0.93}
+\newcommand{\codeBcolor}{0.93}
+\definecolor{lightgrey}{rgb}{\codeRcolor,
+                             \codeGcolor,
+                             \codeBcolor}
+
+\newcommand{\listingfont}{\fontsize{7pt}{8pt}\selectfont\ttfamily}
+\usepackage{listings}
+\lstset{basicstyle = \listingfont,
+        breaklines = true,
+        frame=tb,
+        xleftmargin=12pt,
+        framexleftmargin=6pt,
+        framexrightmargin=6pt,
+        xrightmargin=12pt,
+        columns=fixed}
+\lstset{lineskip=-1pt}
+\lstset{backgroundcolor=\color{lightgrey}}
+
+
+\usepackage[font={footnotesize},
+            labelfont={sf,bf},
+            textfont={sf},
+            singlelinecheck=false,
+            labelsep=none,
+            justification=RaggedRight,
+            aboveskip=0pt,
+            belowskip=7pt plus 1pt minus 1pt,
+            textformat=period]{caption}
+\DeclareCaptionLabelSeparator{mystyle}{.\quad}
+\captionsetup{labelsep=mystyle}
+%%%%%%%%% Will's Stuff ABOVE %%%%%%%%%
+
+\cfoot{\thepage}
+\lhead{\emph{Database Refinement \mbox{\thinspace ---\thinspace}{Empirical Flow Parameters: A Tool for Hydraulic Model Validity Assessment}}}
+
+\thispagestyle{plain}
+%\bibliographystyle{./styles/chicago}
+%\bibliographystyle{apalike}
+
+\title{DIY tools for hydrologic monitoring :  An economical way to obtain useable, screening quality data, from ungaged areas.}
+\author{P.\ Olar Bear \thanks{Texas Tech University, P.O.~Box 41023, Lubbock, TX 79409}  \\
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+%%\nocite{*}
+
+\section*{Abstract}
+words
+
+%\tableofcontents
+
+
+%%%%%%%%%% INTRODUCTION %%%%%%%%%%
+\section{Introduction}
+The need for data, even low-quality DIY (citizen) collected data.
+Ungaged watersheds description.
+The economic issue - esp. in re-developing nations.
+\section{Literature Review} 
+Review of ungaged watersheds methods. \\
+Value of obtaining some gage data \\
+Rainfall data, the easier of the two \\
+Streamflow, the hardest \\
+Evaporation, automating the evaporation pan \\
+The emergence of low-cost system on a chip (SoC) computers -- a datalogger with an operating system and multi-threading capability.  
+Field processing of the raw data. \\
+The sensor challenges \\
+Analog-to-digital conversion \\
+\section{Methods}
+words
+\subsection{DIY Datalogger using Raspberry Pi SoC Computers}
+Review of a handful of SoC computers.  Odroid HC2, Odroid XU4, Arduino, Raspberry Pi (and a few others).\\
+The value of an operating system on a datalogger. \\
+Raspberry Pi chosen because of availability and support. \\
+Programming the sensor-logger interface -- the big decision C++ or Python.\\
+Keeping time -- adding a clock for when the computer is disconnected from the internet.\\
+\subsection{DIY Sensors}
+\subsubsection{DIY Recording Raingage}
+Counting events is pressing a button.  Adapting code that detects button presses and using it to read a tipping-bucket gage.
+trying to keep this part digital so can run parallel to the analog inputs. Capturing the correct time of the event. \\
+\subsubsection{DIY Recording Stage (Depth) Gage}
+A resistor-ladder to measure depth.   
+How to use 1023 states to get meaningful depth measurements.
+An acoustic type gage -- field deployment issues. 
+The A/D converter.\\
+\subsubsection{DIY Recording Evaporation Gage}
+Using a resistor ladder to record evaporation from an evaporation pan.
+Issuing a daily control signal to refill the pan to desired level, then stopping the fill.
+\section{Prototype Builds}
+\section{Prototype Deployment}
+\section{Results}
+\subsection{Proof-of-Principle}
+\subsection{Comparison with a co-located USGS gaging station}
+\section{Conclusions and Recommendations}
+
+
+
+\begin{thebibliography}{3}
+
+\bibitem[Recking(2010)]{recking2010}
+Recking, A., 2010. A comparison between flume and field bed load transport data and consequences for surface-based bed load transport prediction. \textsl{Water Resour. Res., 46}, W03518, doi: 10.1029/2009WR008007.
+
+\bibitem[Peterson(1975)]{peterson1975}
+Peterson, A. W., 1975. Universal flow diagrams for mobile boundary channels. \textsl{Can. J. Civ. Eng., 2}, pp 549-557.
+
+\bibitem[Peterson(1973)]{peterson1973}
+Peterson, A. W., and Howells, R. F., 1973. A compendium of solids transport data for mobile boundary channels.  Envrion. Can., Inland Waters Dir., Ottawa, Can. 
+
+%\bibitem[Abida and Townsend, 1991]{AbidaTownsend1991}
+%Abida, H. and Townsend, R. (1991).
+%\newblock Local scour downstream of box-culvert outlets.
+%\newblock {\em Journal of Irrigation and Drainage Engineering},
+%  117(3):425--441.
+%
+%\bibitem[Abt et~al., 1984]{Abtetal1984}
+%Abt, S., Kloberdanz, R., and Mendoza, C. (1984).
+%\newblock Unified culvert scour determination.
+%\newblock {\em Journal of Hydraulic Engineering}, 110(10):1475--1479.
+%
+%\bibitem[Abt et~al., 1985]{Abtetal1985}
+%Abt, S., Ruff, J., and Doehring, F. (1985).
+%\newblock Culvert slope effects on outlet scour.
+%\newblock {\em Journal of Hydraulic Engineering}, 111(10):1363--1367.
+%
+%\bibitem[Ashida and Michiu, 1972]{AshidaMichiu1972}
+%Ashida, K. and Michiu, M. (1972).
+%\newblock Study on hydraulic resistance and bed load transport rate in alluvial
+%  streams.
+%\newblock {\em Transactions, Japan Society of Civil Engineering}, 206:59--69.
+%
+%\bibitem[Babcock, 1970]{Babcock1970}
+%Babcock, H.~A. (1970).
+%\newblock The sliding bed flow regime.
+%\newblock In {\em 1st International Conference on Hydraulic Transportation of
+%  Solids in Pipes}, number Paper H1 in Hydrotransport 1. British Hydromechanics
+%  Research Association.
+%
+%\bibitem[Bathurst et~al., 1987]{bathurstetal1987}
+%Bathurst, J.~C., Graf, W.~H., and Cao, H.~H. (1987).
+%\newblock Bed load discharge equations for steep mountain rivers.
+%\newblock In Thorne, C.~R., Bathurst, J.~C., and Hey, R.~D., editors, {\em
+%  Sediment Transport in Gravel-bed Rivers}, pages 453--491. John Wiley \& Sons
+%  Ltd.
+%
+%\bibitem[Biedenharn et~al., 2000]{Biedenharnetal2000}
+%Biedenharn, D.~S., Copeland, R.~R., Thorne, C.~R., Soar, P.~J., D.Hey, R., and
+%  Watson, C.~C. (2000).
+%\newblock Effective discharge calculation: A practical guide.
+%\newblock ERDC/CHL TR-00-15, U.S. Army Engineer Research and Development
+%  Center, Coastal and Hydraulics Laboratory.
+%
+%\bibitem[Brownlie, 1981]{brownlie1981}
+%Brownlie, W.~R. (1981).
+%\newblock Prediction of flow depth and sediment discharge in open channels.
+%\newblock Report KH-R-43A, W. M. Keck Laboratory of Hydraulics and Water
+%  Resources, California Institute of Technology, Pasadena, California, USA.
+%
+%\bibitem[Buffington and Montgomery, 1997]{buffingtonandmontgomery1997}
+%Buffington, J.~M. and Montgomery, D.~R. (1997).
+%\newblock A systematic analysis of eight decades of incipient motion studies,
+%  with special reference to gravel-bedded rivers.
+%\newblock {\em Water Resources Research}, 33(8):1993--2029.
+%
+%\bibitem[Chang, 1988]{chang1988}
+%Chang, H. (1988).
+%\newblock {\em Fluvial Processes in River Engineering}.
+%\newblock Krieger.
+%
+%\bibitem[Chien and Wan, 1999]{ChienWan1999}
+%Chien, N. and Wan, Z. (1999).
+%\newblock {\em Mechanics of Sediment Transport}.
+%\newblock ASCE Press, Reston, Va.
+%
+%\bibitem[Chiu and Seman, 1971]{ChiuSeman1971}
+%Chiu, C.~L. and Seman, J.~J. (1971).
+%\newblock Head loss in spiral-liquid flow in pipes.
+%\newblock In Zandi, I., editor, {\em Advances in Solid-Liquid Flow in Pipes and
+%  its Application}. Pergamon Press Inc.
+%
+%\bibitem[Church, 2006]{church2006}
+%Church, M. (2006).
+%\newblock Bed material transport and the morphology of alluvial river channels.
+%\newblock 34:32554.
+%
+%\bibitem[Crookston, 2008]{Crookston2008}
+%Crookston, B.~M. (2008).
+%\newblock A laboratory study of streambed stability in bottomless culverts.
+%\newblock Master's thesis, Utah State University, Logan, Utah.
+%
+%\bibitem[Crookston and Tullis, 2006]{CrookstonTullis2006}
+%Crookston, B.~M. and Tullis, B.~P. (2006).
+%\newblock Preliminary study of scour in bottomless culverts.
+%\newblock Technical Report FHWA-AK-RD-06-05, Alaska Department of
+%  Transportation.
+%
+%\bibitem[Dietrich et~al., 1989]{Dietrichetal1989}
+%Dietrich, W.~E., Kirchner, J.~W., Ikeda, H., and Iseya, F. (1989).
+%\newblock Sediment supply and the development of the coarse surface layer in
+%  gravel-bedded rivers.
+%\newblock {\em Nature}, 340(6230):215--217.
+%
+%\bibitem[Dodd et~al., 2004]{Doddetal2004}
+%Dodd, C.~K., Barichivich, W.~J., and Smith, L.~L. (2004).
+%\newblock Effectiveness of a barrier wall and culverts in reducing wildlife
+%  mortality on a heavily traveled highway in florida.
+%\newblock {\em Biological Conservation}, 118(5):619--631.
+%
+%\bibitem[Egiazaroff, 1965]{egiazaroff1965}
+%Egiazaroff, I.~V. (1965).
+%\newblock Calculation of nonuniform sediment concentration.
+%\newblock {\em Journal of the Hydraulics Division, Proceedings of the ASCE},
+%  91(4):225--248.
+%
+%\bibitem[Einstein, 1950]{einstein1950}
+%Einstein, H.~A. (1950).
+%\newblock The bed load function for sediment transport in open channels.
+%\newblock Technical {B}ulletin 1026, U.S. Department of Agriculture.
+%
+%\bibitem[Emmett and Wolman, 2001]{EmmettWolman2001}
+%Emmett, W. and Wolman, M. (2001).
+%\newblock Effective discharge and gravel-bed rivers.
+%\newblock {\em Earth Surface Processes and Landforms}, 26(13):1369--1380.
+%
+%\bibitem[Fenton and Abbott, 1977]{fentonandabbott1977}
+%Fenton, J.~D. and Abbott, J.~E. (1977).
+%\newblock Initial movement of grains on a stream bed: the effect of relative
+%  protrusion.
+%\newblock {\em Proceedings of the Royal Society of London. Series A},
+%  352:523--537.
+%
+%\bibitem[Ferguson and Church, 2004]{fergusonandchurch2004}
+%Ferguson, R. and Church, M. (2004).
+%\newblock A simple universal equation for grain settling velocity.
+%\newblock {\em Journal of Sedimentary Research}, 74(6):933--937.
+%
+%\bibitem[Garc{\'\i}a, 2008]{asceSedMan2008}
+%Garc{\'\i}a, M.~H., editor (2008).
+%\newblock {\em Sedimentation Engineering: Processes, Measurements, Modeling,
+%  and Practice}.
+%\newblock {ASCE} Manuals and Reports on Engineering Practice No. 110. ASCE.
+%
+%\bibitem[Gilbert, 1960]{Gilbert1960}
+%Gilbert, R. (1960).
+%\newblock Transport hydraulique et refoulement des mixtures en conduit.
+%\newblock {\em Anals des Pontes et Chaussees}, 130(3.4):307--373,437--494.
+%
+%\bibitem[Goodridge, 2009]{Goodridge2009}
+%Goodridge, W.~H. (2009).
+%\newblock {\em Sediment Transport Impacts Upon Culvert Hydraulics}.
+%\newblock PhD thesis, Utah State University, Logan, Utah.
+%
+%\bibitem[Graf, 1971]{Graf1971}
+%Graf, W.~H. (1971).
+%\newblock {\em Hydraulics of Sediment Transport}.
+%\newblock McGraw-Hill.
+%
+%\bibitem[Graf and Acaroglu, 1968]{GrafAcaroglu1968}
+%Graf, W.~H. and Acaroglu, E.~R. (1968).
+%\newblock Sediment transport in conveyance systems.
+%\newblock {\em Bulletin of the International Association of Scientific
+%  Hydrology}, 13(2).
+%
+%\bibitem[Haderlie and Tullis, 2008]{HaderlieTullis2008}
+%Haderlie, G. and Tullis, B. (2008).
+%\newblock Hydraulics of multibarrel culverts under inlet control.
+%\newblock {\em Journal of Irrigation and Drainage Engineering}, 134:507.
+%
+%\bibitem[Ho and Muste, 2009]{HoMuste2009}
+%Ho, H.-C. and Muste, M. (2009).
+%\newblock Sedimentation of multi-barrel culverts.
+%\newblock In {\em Proceedings of the 2009 Mid-Continent Transportation Research
+%  Symposium}, Ames, Iowa.
+%
+%\bibitem[Hofland and Battjes, 2006]{hoflandandbattjes2006}
+%Hofland, B. and Battjes, J.~A. (2006).
+%\newblock Probability density function of instantaneous drag forces and shear
+%  stresses on a bed.
+%\newblock {\em Journal of Hydraulic Engineering}, 132(11):1169--1175.
+%
+%\bibitem[Hofland et~al., 2005]{hoflandetal2005}
+%Hofland, B., Battjes, J.~A., and Booij, R. (2005).
+%\newblock Measurement of fluctuating pressures on coarse bed material.
+%\newblock {\em Journal of Hydraulic Engineering}, 131(9):770--781.
+%
+%\bibitem[House et~al., 2005]{Houseetal2005}
+%House, M., Pyles, M., and White, D. (2005).
+%\newblock Velocity distributions in streambed simulation culverts used for fish
+%  passage.
+%\newblock {\em Journal of the American Water Resources Association},
+%  41(1):209--217.
+%
+%\bibitem[Howard, 1939]{Howard1939}
+%Howard, G.~W. (1939).
+%\newblock Transportation of sand and gravel in a four-inch pipe.
+%\newblock {\em Transactions ASCE}, 104(2039):1334--1348.
+%
+%\bibitem[Howard, 1941]{Howard1941}
+%Howard, G.~W. (1941).
+%\newblock Effects of rifling on four-inch pipe transporting solids.
+%\newblock {\em Transactions ASCE}, 106(2101):135--137.
+%
+%\bibitem[Johnson and Brown, 2000]{JohnsonBrown2000}
+%Johnson, P. and Brown, E. (2000).
+%\newblock Stream assessment for multicell culvert use.
+%\newblock {\em Journal of Hydraulic Engineering-Reston}, 126(5):381--386.
+%
+%\bibitem[Julien, 1998]{Julien1998}
+%Julien, P.~Y. (1998).
+%\newblock {\em Erosion and Sedimentation}.
+%\newblock Cambridge University Press.
+%
+%\bibitem[Kerenyi et~al., 2003]{Kerenyietal2003}
+%Kerenyi, K., Jones, J., and Stein, S. (2003).
+%\newblock Bottomless culvert scour study: Phase 1 laboratory report.
+%\newblock Research Report FHWA--RD--02--078, Federal Highway Administration,
+%  6300 Georgetown Pike, McLean VA 22101-2296.
+%
+%\bibitem[Kerenyi et~al., 2007]{Kerenyietal2007}
+%Kerenyi, K., Jones, J., and Stein, S. (2007).
+%\newblock Bottomless culvert scour study: Phase 2 laboratory report.
+%\newblock Research Report FHWA--HRT--07--026, Federal Highway Administration,
+%  6300 Georgetown Pike, McLean VA 22101-2296.
+%
+\bibitem[King et~al., 2004]{kingetal2004}
+King, J., Emmett, W., Whiting, P., Kenworthy, R., and Barry, J. (2004).
+\newblock Sediment transport data and related information for selected
+  coarse-bed streams and rivers in idaho.
+\newblock General Technical Report RMRS-GTR-131, USDA Forest Service, Rocky
+  Mountain Research Station, Fort Collins, CO.
+%
+%\bibitem[Lamb et~al., 2008]{lambetal2008}
+%Lamb, M.~P., Dietrich, W.~E., and Venditti, J.~G. (2008).
+%\newblock Is the critical {S}hields stress for incipient sediment motion
+%  dependent on channel-bed slope.
+%\newblock {\em Journal of Geophysical Research}, 113:F02008.
+%
+%\bibitem[Laursen, 1956]{Laursen1956}
+%Laursen, E. (1956).
+%\newblock The hydraulics of a storm-sewer system for sediment-transporting
+%  flow.
+%\newblock Technical Report Bulletin 5, Iowa Highway Research Board.
+
+\bibitem[Lee et~al., 2004]{leeetal2004}
+Lee, K.~T., Liu, Y.-L., and Cheng, K.-H. (2004).
+\newblock Experimental investigation of bedload transport processes under
+  unsteady flow conditions.
+\newblock {\em Hydrological Processes}, 18:2439--2454.
+
+%\bibitem[Liriano et~al., 2002]{Lirianoetal2002}
+%Liriano, S., Day, R., and White, W. (2002).
+%\newblock {Scour at culvert outlets as influenced by the turbulent flow
+%  structure}.
+%\newblock {\em Journal of Hydraulic Research}, 40(3):367--376.
+%
+%\bibitem[Maxwell et~al., 2001]{Maxwelletal2001}
+%Maxwell, A., Papanicolaou, A., Hotchkiss, R., Barber, M., and Schafer, J.
+%  (2001).
+%\newblock Step-pool morphology in high-gradient countersunk culverts.
+%\newblock {\em Transportation Research Record}, 1743(01-2304):49--56.
+%
+%\bibitem[McEwan and Heald, 2001]{McEwanHeald2001}
+%McEwan, I. and Heald, J. (2001).
+%\newblock Discrete particle modeling of entrainment from flat uniformly sized
+%  sediment beds.
+%\newblock {\em Journal of Hydraulic Engineering}, 127(7):588--597.
+%
+%\bibitem[Meyer-{P}eter and M{\"u}ller, 1948]{meyerpeterandmuller1948}
+%Meyer-{P}eter, E. and M{\"u}ller, R. (1948).
+%\newblock Formulas for bed-load transport.
+%\newblock In {\em Proceedings of the Second Meeting}, pages 39--64, Stockholm,
+%  Sweden. IAHR.
+%
+%\bibitem[Monteith and Pender, 2005]{MonteithPender2005}
+%Monteith, H. and Pender, G. (2005).
+%\newblock Flume investigations into the influence of shear stress history on a
+%  graded sediment bed.
+%\newblock {\em Water Resources Research}, 41(12):W12401.
+%
+%\bibitem[Muste et~al., 2010]{Musteetal2010}
+%Muste, M., Ho, H.-C., and Mehl, D. (2010).
+%\newblock Insights into the origin and characteristics of the sedimentation
+%  process at multi-barrel culverts in iowa.
+%\newblock Technical Report IHRB Project TR-596, The Iowa Highway Research
+%  Board.
+%
+%\bibitem[Neill, 1968]{Neill1968}
+%Neill, C.~R. (1968).
+%\newblock A re-examination of the beginning of movement for coarse granular bed
+%  material.
+%\newblock Technical Report Report INT 68, Hydraulics Research Station,
+%  Wallingford, UK.
+%
+%\bibitem[Newitt et~al., 1955]{Newittetal1955}
+%Newitt, D.~M., Richardson, J.~F., Abbott, M., and Turtle, R.~B. (1955).
+%\newblock Hydraulic conveying of solids in horizontal pipes.
+%\newblock {\em Transactions Institution of Chemical Engineers}, 33(2):93--113.
+%
+%\bibitem[Oldmeadow and Church, 2006]{oldmeadowandchurch2006}
+%Oldmeadow, D.~F. and Church, M. (2006).
+%\newblock A field experiment on streambed stabilization by gravel structures.
+%\newblock {\em Geomorphology}, 78:335--350.
+%
+%\bibitem[Paintal, 1971]{paintal1971}
+%Paintal, A.~S. (1971).
+%\newblock Concept of critical shear stress in loose boundary open channels.
+%\newblock {\em Journal of Hydraulic Research}, 9(1):91--113.
+%
+%\bibitem[Papanicolaou et~al., 2002]{papanicetal2002}
+%Papanicolaou, A.~N., Diplas, P., Evaggelopoulos, N., and Fotopoulos, S. (2002).
+%\newblock Stochastic incipient motion criterion for spheres under various bed
+%  packing conditions.
+%\newblock {\em Journal of Hydraulic Engineering}, 128(4):369--380.
+%
+%\bibitem[Parker, 1990]{parker1990}
+%Parker, G. (1990).
+%\newblock Surface-based bedload transport relation for gravel rivers.
+%\newblock {\em Journal of Hydraulic Research}, 28(4):417--436.
+%
+%\bibitem[Parker, 2008]{parker2008}
+%Parker, G. (2008).
+%\newblock {\em Sedimentation Engineering: Processes, Measurements, Modeling,
+%  and Practice}, chapter~3, pages 165--251.
+%\newblock {ASCE} Manuals and Reports on Engineering Practice No. 110. American
+%  Society of Civil Engineering.
+%
+%\bibitem[Parker and Klingeman, 1982]{parkerandklingeman1982}
+%Parker, G. and Klingeman, P.~C. (1982).
+%\newblock On why gravel bed streams are paved.
+%\newblock {\em Water Resources Research}, 18(5):1409--1423.
+%
+%\bibitem[Parker et~al., 1982]{parkeretal1982}
+%Parker, G., Klingeman, P.~C., and Mc{L}ean, D.~G. (1982).
+%\newblock Bedload and size distribution in paved gravel-bed streams.
+%\newblock {\em Journal of Hydraulic Engineering}, 108(4):544--571.
+%
+%\bibitem[Parker and Sutherland, 1990]{parkerandsutherland1990}
+%Parker, G. and Sutherland, A.~J. (1990).
+%\newblock Fluvial armouring.
+%\newblock {\em Journal of Hydraulic Research}, 28(5):529--544.
+%
+%\bibitem[Peake, 2004]{Peake2004}
+%Peake, S. (2004).
+%\newblock An evaluation of the use of critical swimming speed for determination
+%  of culvert water velocity criteria for smallmouth bass.
+%\newblock {\em Transactions of the American Fisheries Society},
+%  133(6):1472--1479.
+%
+%\bibitem[Peterson and Howells, 1973]{PetersonHowells1973}
+%Peterson, A.~W. and Howells, R.~F. (1973).
+%\newblock A compendium of solids transport data for mobile boundary channels.
+%\newblock Technical report, Inland Waters Directorate, Envrionment Canada.
+%
+%%\bibitem[Recking, 2010]{Recking2010}
+%%Recking, A. (2010).
+%%\newblock A comparison between flume and field bed load transport data and
+%%  consequences for surface-based bed load transport prediction.
+%%\newblock {\em Water Resources Research}, 46(3):W03518.
+
+\bibitem[Recking et~al., 2008a]{reckingetal2008}
+Recking, A., Frey, P., Paquier, A., Belleudy, P., and Champagne, J.~Y. (2008a).
+\newblock Bed-load transport flume experiments on steep slopes.
+\newblock {\em Journal of Hydraulic Engineering}, 134(9):1302--1310.
+
+\bibitem[Recking et~al., 2008b]{reckingetal2008b}
+Recking, A., Frey, P., Paquier, A., Belleudy, P., and Champagne, J.~Y. (2008b).
+\newblock Feedback between bed load transport and flow resistance in gravel and
+  cobble bed rivers.
+\newblock {\em Water Resources Research}, 44(5):W05412.
+
+%\bibitem[Schoklitsch, 1949]{schoklitsch1949}
+%Schoklitsch, A. (1949).
+%\newblock Berechnung der geschiebefracht.
+%\newblock {\em Wasser und Energiewirtschaft}, 1.
+%
+%\bibitem[Shields, 1936]{shields1936}
+%Shields, A. (1936).
+%\newblock {\em Anwendung der Aehnlichkeitsmechanik und der Turbulenz Forschung
+%  auf die Geschiebebewegung}.
+%\newblock PhD thesis, Mitt. der Preussische Versuchanstalt f{\"u}r Wasserbau
+%  und Schiffbau,, Berlin, Germany.
+%
+%\bibitem[Strom et~al., 2004]{strometal2004}
+%Strom, K., Papanicolaou, A.~N., Evangelopoulos, N., and Odeh, M. (2004).
+%\newblock Microforms in gravel bed rivers: Formation, disintegration, and
+%  effects on bedload transport.
+%\newblock {\em Journal of Hydraulic Engineering}, 130(6):554--567.
+
+%\bibitem[Vanoni, 1975]{asceSedMan1975}
+%Vanoni, V.~A., editor (1975).
+%\newblock {\em Sedimentation Engineering}.
+%\newblock {ASCE} Manuals and Reports on Engineering Practice No. 54. ASCE.
+%
+%\bibitem[Wargo and Weisman, 2006]{WargoWeisman2006}
+%Wargo, R.~S. and Weisman, R.~N. (2006).
+%\newblock A comparison of single-cell and multicell culverts for stream
+%  crossings.
+%\newblock {\em Journal of the American Water Resources Association},
+%  42(4):989--995.
+%
+%\bibitem[Warren and Pardew, 1998]{WarrenPardew1998}
+%Warren, M. and Pardew, M. (1998).
+%\newblock Road crossings as barriers to small-stream fish movement.
+%\newblock {\em Transactions of the American Fisheries Society},
+%  127(4):637--644.
+%
+%\bibitem[Whiting et~al., 1999]{whitingetal1999}
+%Whiting, P.~J., Stamm, J.~F., and Moog, D.~B. (1999).
+%\newblock Sediment-transporting flows in headwater streams.
+%\newblock {\em Geological Society of America Bulletin}, 111(3):450--466.
+
+%\bibitem[Wilcock and Crowe, 2003]{WilcockCrowe2003}
+%Wilcock, P.~R. and Crowe, J.~C. (2003).
+%\newblock Surface-based transport model for mixed-size sediment.
+%\newblock {\em Journal of Hydraulic Engineering}, 129(2):120--128.
+
+\bibitem[Wilcock et~al., 2001]{wilcocketal2001}
+Wilcock, P.~R., Kenworthy, S.~T., and Crowe, J.~C. (2001).
+\newblock Experimental study of the transport of mixed sand and gravel.
+\newblock {\em Water Resources Research}, 37(12):3349--3358.
+
+%\bibitem[Wolman and Miller, 1960]{wolmanandmiller1960}
+%Wolman, M.~G. and Miller, J.~C. (1960).
+%\newblock Magnitude and frequency of forces in geomorphic processes.
+%\newblock {\em Journal of Geology}, 68:54--74.
+
+\bibitem[Wong and Parker, 2006]{wongandparker2006}
+Wong, M. and Parker, G. (2006).
+\newblock Reanalysis and correction of bed-load relation of meyer-peter and
+  m{\"u}ller using their own database.
+\newblock {\em Journal of Hydraulic Engineering}, 132(11):1159--1168.
+
+\bibitem[Wong et~al., 2007]{wongetal2007}
+Wong, M., Parker, G., DeVries, P., Brown, T.~M., and Burges, S.~J. (2007).
+\newblock Experiments on dispersion of tracer stones under lower-regime
+  plane-bed equilibrium bed load transport.
+\newblock {\em Water Resources Research}, 43:W03440.
+
+\bibitem[Wu and Chou, 2003]{wuandchou2003}
+Wu, F.~C. and Chou, Y.~J. (2003).
+\newblock Rolling and lifting probabilities for sediment entrainment.
+\newblock {\em Journal of Hydraulic Engineering}, 129(2):110--119.
+
+%\bibitem[Yang, 1996]{yang}
+%Yang, C.~T. (1996).
+%\newblock {\em Sediment Transport: Theory and Practice}.
+%\newblock Mc{G}raw-Hill Series in Water Resources and Environmental
+%  Engineering. McGraw-Hill.
+%
+%\bibitem[Zenz and Othmer, 1960]{ZenzOthmer1960}
+%Zenz, F.~A. and Othmer, D.~F. (1960).
+%\newblock {\em Fluidization and Fluid-Particles Systems}.
+%\newblock Reinhold Publishing Corp., New York, NY.
+%
+%\bibitem[Asquith and Slade(1997)]{AS1997}
+%Asquith, W.H., and Slade, R.M., 1997, Regional equations for estimation of peak-streamflow frequency for natural basins in Texas: U.S. Geological Survey Water Resources Investigations Report 96--4307, \url{http://pubs.usgs.gov/wri/wri964307/}.
+%
+%\bibitem[Asquith, and Roussel (2009)]{AR2009}
+%Asquith, W.H., and Roussel, M. S., 2009, Regression equations for estimation of annual peak-streamflow frequency for undeveloped watershed in Texas using an L-moment-based, PRESS-minimized, residual adjusted approach. U.S. Geological Survey Scientific Investigations Report 2009--5087.
+%
+%\bibitem[Asquith, Herrmann, and Cleveland(2013)]{AsquithQVGAM2013}
+%Asquith, W.H., Herrmann, G.R., and Cleveland, T.G., 2013, Use of generalized additive modeling for regionalization of a discharge measurement database in Texas. Journal of Hydrologic Engineering, American Society of Civil Engineers, \textsl{in press}
+%%
+%\bibitem[Gordon and others(2004)]{Gordon2004}
+%Gordon, N.D., T.A. McMahon, B.L. Finlayson, C.J. Gippel, R.J. Nathan, 2004,
+%Stream Hydrology: An Introduction for Ecologists (second edition). John Wiley, The Atrium, Southern Gate, Chichester, West Sussex PO19 8SQ,
+%England, 429~p.
+
+%
+%\bibitem[Homer and other(2004)]{Homer2004}
+%Homer, C., Huang, C., Yang, L., Wylie, B., and Coan, M., 2004, Development of a 2001 national land cover database for the United States: Photogrammetric Engineering and Remote Sensing, v.~70, no.~7, p. 829--840, \url{http://www.mrlc.gov/nlcd2001.php}.
+
+%\bibitem[Miller(1953)]{Miller1953}
+%Miller, V.C., 1953, A quantitative geomorphic study of drainage basin
+%characteristics in the Clinch Mountain area, Virginia and Tennessee: Columbia
+%University, Department of Geology, Technical Report, no.~3, Contract N6-ONR
+%271--300. [Miller proposed the circular ratio for expressing characteristics of basin shape.]
+
+%\bibitem[Strahler(1952)]{Strahler1952}
+%Strahler, A.N. 1952, Dynamic basis of geomorphology: Bulletin of the Geological Society of America, 63:923--938.
+
+%\bibitem[Shreve(1967)]{Shreve1967}
+%Shreve, R.L. 1967. Infinite topologically random channel networks: Journal of
+%Geology, 75:178--186.
+
+
+%\bibitem[USGS(2009)]{NWISmeasurements}
+%U.S. Geological Survey, 2009, Streamflow measurements for Texas: USGS National Water Information System, accessed March 1, 2009, \url{http://waterdata.usgs.gov/tx/nwis/measurements/?site_no=STATIONID&agency_cd=USGS}.
+
+%\bibitem[USGS(2009b)]{NWISdv}
+%U.S. Geological Survey, 2009b, Daily mean streamflow values for Texas: USGS National Water Information System, accessed March 1, 2009, \url{http://waterdata.usgs.gov/tx/nwis/dv/?site_no=STATIONID&agency_cd=USGS}
+
+\end{thebibliography}
+
+
+
+\end{document}
+
+

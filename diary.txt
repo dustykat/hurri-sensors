@@ -1,0 +1,7 @@
+2019-0218 Tested flow monitoring sensor in lab with Rainwater.  All sensors run on the program.  Volume constants are different for different brands and will need manual calibrate.
+
+2019-0219 Travis account sucessfully added and connected.  Role is developer so shoul dbe able to push/edit contents to repository.  
+
+Travis sucessfuly edited diary.diary.txt
+
+Plastic ladder(s) are cut and ready for drilling holes.  
